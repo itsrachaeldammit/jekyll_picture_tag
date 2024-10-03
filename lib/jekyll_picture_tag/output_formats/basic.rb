@@ -24,6 +24,8 @@ module PictureTag
 
         add_alt(img, attributes['alt'])
 
+        add_title(img, attributes['title'])
+
         img
       end
 
@@ -63,6 +65,10 @@ module PictureTag
 
       def add_alt(element, alt)
         element.alt = alt if alt
+      end
+
+      def add_title(element, title)
+        element.title = title if title
       end
 
       def add_media(element, srcset)
