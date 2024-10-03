@@ -35,7 +35,7 @@ class TestIntegrationParams < Minitest::Test
     params = <<~HEREDOC
       auto rms.jpg class="implicit" --parent class="parent" --picture
        data-awesomeness="11" --img class="img" --source class="source"
-       --alt Alternate Text
+       --alt Alternate Text --title Title Text
     HEREDOC
 
     output = tested(params)
@@ -48,6 +48,7 @@ class TestIntegrationParams < Minitest::Test
     assert_equal 'parent', pic['class']
     assert_equal '11', pic['data-awesomeness']
     assert_equal 'Alternate Text', img['alt']
+    assert_equal 'Title Text', img['title']
     assert_includes img['class'], 'implicit'
     assert_includes img['class'], 'img'
     assert(sources.all? { |s| s['class'] == 'source' })

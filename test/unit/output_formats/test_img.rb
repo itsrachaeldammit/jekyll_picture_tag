@@ -65,6 +65,27 @@ class TestImg < Minitest::Test
     assert_equal correct, tested.to_s
   end
 
+  def test_title
+    PictureTag.html_attributes.merge!({ 'title' => 'title text' })
+
+    correct = <<~HEREDOC
+      <img src="good_url" title="title text" srcset="ss">
+    HEREDOC
+
+    assert_equal correct, tested.to_s
+  end
+
+  def test_alt_title
+    PictureTag.html_attributes.merge!({ 'alt' => 'alt text',
+                                        'title' => 'title text' })
+
+    correct = <<~HEREDOC
+      <img src="good_url" alt="alt text" title="title text" srcset="ss">
+    HEREDOC
+
+    assert_equal correct, tested.to_s
+  end
+
   def test_parent
     PictureTag.html_attributes.merge!({ 'parent' => 'class="parent"' })
 

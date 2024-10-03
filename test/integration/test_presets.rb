@@ -108,6 +108,7 @@ class TestIntegrationPresets < Minitest::Test
     assert_equal 'parent', pic['class']
     assert_equal '11', pic['data-awesomeness']
     assert_equal 'Alternate Text', img['alt']
+    assert_equal 'Title Text', img['title']
     assert_equal 'img', img['class']
     assert_equal 'anchor', anchor['class']
     assert(sources.all? { |s| s['class'] == 'source' })

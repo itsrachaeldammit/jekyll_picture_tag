@@ -94,6 +94,7 @@ module Stubs
           'attributes' => {
             'parent' => 'class="parent"',
             'alt' => 'Alternate Text',
+            'title' => 'Title Text',
             'a' => 'class="anchor"',
             'picture' => 'data-awesomeness="11"',
             'source' => 'class="source"',
